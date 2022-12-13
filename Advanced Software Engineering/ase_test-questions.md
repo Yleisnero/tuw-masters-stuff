@@ -7,13 +7,13 @@ Dependable software (that always works) which has an extended lifecycle (runs de
 - It is not about who does something, it is about how it is done.
 - It is about considering operations from the beginning.
 - It is about knowing how the other side works.
-- It is about faciliating communication.
+- It is about facilitating communication.
 
 ### What is meant by technical debts? Name three examples of technical debts and their possible causes!
 Technical debts are created when a developer opts for a faster solution instead of a more sustainable, readable, maintainable one.
 Examples:
 - no documentation of the architecture. Possible cause: the customer didn't want to pay for it, so no documentation has been created
-- bad modularisation or architecture. Possible cause: the development team didn't have enough skills or experience when they created the software
+- bad modularization or architecture. Possible cause: the development team didn't have enough skills or experience when they created the software
 - a lot of TODOs in the code base. Possible cause: the developers were under time pressure and decided to implement a "quick & dirty" solution and refactor it later
 
 ### What are the differences between localization and internationalization? Explain typical focus points!
@@ -41,7 +41,7 @@ Conventions
 - A component is a glob of software, that is used without change by an application, that has no control over the writer of the component. (used locally e.g. jar)
 - A service is also used by a foreign application, but it is accessed remotely (e.g. web service)
 
-### Name 5 CI Priciples after Fowler
+### Name 5 CI Principles after Fowler
 1. Maintain a code repository
 2. Automate the build
 3. Make the build self-testing
@@ -75,7 +75,7 @@ Challenges: <br/>
 ### Explain the idea behind Continuous Integration! What’s the difference between Continuous Integration, Continuous Delivery and Continuous Deployment?
 - Continuous Integration is the process of automating the build process. Work is constantly merged to the baseline and built and tested automatically there. (Execute a full build after every commit)
 - Continuous Delivery additionally delivers code to a staging environment and runs acceptance tests there.
-- Continous Deployment means automatic deployment of code from SCM to production. Needs Continous Integration and Continous Delivery to be in place. Automatically runs smoke tests.
+- Continuos Deployment means automatic deployment of code from SCM to production. Needs Continuos Integration and Continuos Delivery to be in place. Automatically runs smoke tests.
 
 ### What are cross cutting concerns? Why should cross cutting concerns be separated from business logic?
 - Cross-cutting concerns are code parts which are reused a lot within the software (e.g. logging, transactions). They span over multiple points of the application.
@@ -83,7 +83,7 @@ Challenges: <br/>
 
 ### Explain the differences between Build Time Modularization and Runtime Modularization and name one popular Java technology for one of them!
 - Build time modularization contains of a single bundle (container). Updates requires complete redeployment. (e.g. Maven)
-- Runtime modularization: multiple bundles with multiple jars. Updates can be done by partialy redeploying. (e.g. OSGI)
+- Runtime modularization: multiple bundles with multiple jars. Updates can be done by partially redeploying. (e.g. OSGI)
 
 ### What is Dependency Management?
 Dependency management is used to manage external components and libraries which are used in the software.
@@ -109,7 +109,7 @@ Dependency management is used to manage external components and libraries which 
 ### Explain dependency injection!
 Dependency Injection is a pattern, where the gluing of objects is separated from the implementation. Therefore all implementation is against the API. There is a central definition and container that creates and binds objects together.
 
-### Name possabilities and advantages of dependecy injection!
+### Name possibilities and advantages of dependency injection!
 - DI supports code reuse
 - It’s a very useful technique for testing, since it allows dependencies to be mocked or stubbed out (independently testing classes)
 - DI supports different bindings for different environments
