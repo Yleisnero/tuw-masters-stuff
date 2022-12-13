@@ -1,25 +1,24 @@
 # Summary Digital Forensics WS 2022
 
 ## 01 Analysis Methods
-Digital Forensics:
+**Digital Forensics**:
 - A collection of tasks conducted by system administrators, network engineers and law enforcements. <br/>
 
 Usual setting:
 - Expert within a company
 - Technical expert witness (at court)
-- Consulting
-Output: Deliverable is a report (Gutachten)
+- Consulting output: Deliverable is a report (Gutachten)
 
 ### Gutachten
 Split in two parts
-- Befund (factual part): Contains all objective facts and how they where obtained. Includes dates, hash values, used software ...
-- Gutachten (expert testimony): answers specific questions, includes expert interpretation <br/>
+- **Befund** (factual part): Contains all objective facts and how they where obtained. Includes dates, hash values, used software ...
+- **Gutachten** (expert testimony): answers specific questions, includes expert interpretation <br/>
 Main goals: comprehensive, preserve data (integrity), describe ground truth (judges usually don't know technology)
 
 ### Definitions
 - **Forensic science**: Application of science to the law<br/>
 The identification, collection, examination and analysis of data while **preserving the integrity** of the information and maintaining a strict **chain of custody** for the data.
-- **Integrity**: Preventing accidental modifications of data at all cost, enforced using hardware write-blockers, verified using cryptographic hash functions (SHA-256 or better, MD5 & SHA-1 are broken, but can be still fine for digital forensics -> fast and efficient)
+- **Integrity**: Preventing accidental modifications of data at all cost, enforced using hardware write-blockers, verified using cryptographic hash functions (SHA-256 or better, MD5 & SHA-1 are broken, but can be still fine for digital forensics (fast and efficient))
 - **Weak collision resistance**: Find any input for given hash value (sufficient for forensics)
 - **Strong collision resistance**: Find two input which have the same hash value
 ### Chain of Custody
@@ -57,7 +56,7 @@ Computer turned off:
 Computer turned on:
 - Document the status of the computer and every step your team does (e.g. lock, hibernate, running, screen saver)
 - Don't start random clicking
-- Secure RAM using DMA devices like Expresscard, Thunderbolt or Firewire (or with software) -> RAM analysis
+- Secure RAM using DMA devices like Expresscard, Thunderbolt or Firewire (or with software) for RAM analysis
 - Funky acquisition: cold boot attack, or PCILeech
 - Do not trust the computer, the local tools or the operating system
 - Pull the plug - do not shutdown. Continue with "computer off"
@@ -75,7 +74,7 @@ Stages of analysis:
 - Accompanying documentation: hash values, chain of custody, evidence bags, pictures, videos
 
 ### Different analysis methods
-Timeline analysis:
+#### Timeline analysis
 - Goal: reconstruct timeline of events by analyzing every ﬁle
 - Information sources: filesystem metadata (MAC timestamps), logfiles, network traffic
 - Last file access: M = modified, A = accessed, C = created (different rules for Unix / Windows, viruses can change timestamps)
@@ -84,16 +83,16 @@ Timestamp paradoxon:
 - MAC timestamps seemingly paradox in NTFS after copying/moving files
 - M-time < C-time (can be used to identify source and destination)
 
-Network analysis:
+#### Network analysis
 - Infected systems can hide processes (rootkits)
 - Can be monitored externally, no need to access or trust the operating system (wiﬁ sniffing, arp spoofing, ...)
 - Use wireshark or tcpdump for analysis (IP addresses, port numbers, content, ...)
 
-Keyword analysis:
+#### Keyword analysis
 - Find files with wordlists of interest
 - Simplest, yet still surprisingly effective method
 
-File reconstruction:
+#### File reconstruction
 - If a file is deleted, only metadata is (partially) destroyed
 - Data region is marked free, but not overwritten
 - File can in many cases be reconstructed, as long as it is not (partially) overwritten
@@ -103,24 +102,24 @@ File shredding:
 - Tools like shred (*nix), WipeFile (Windows)
 - Or: physical destruction
 
-File Carving:
+#### File Carving
 - Looks for file signature or hard drives
 - Many files have predefined header and footer
 - Simple pattern matching, data as stream
 - E.g. JPEG starts with 0xﬀd8 and ends with 0xﬀd9
 - File fragment classification still hard problem
 
-Whitelisting of files:
+#### Whitelisting of files
 - Files of no particular interest can be whitelisted
 - To counter increased analysis time for 4+ TB harddrives
 - National Software Reference Library (NSRL), by NIST (publishes hash values)
 
-Sector hashing:
+#### Sector hashing
 - Hashing hard drive sectors, instead of files
 - Benefit: Partially overwritten files (slack)
 - Problem: Number of hash values
 
-Fuzzy hashing:
+#### Fuzzy hashing
 - Sometimes cryptographic hashes are insufficient (change in single bit yields to totally different hash)
 - Problem: How to find similar files (on bytelevel)
 - Solution: Split files intelligently, and apply some form of
@@ -128,12 +127,12 @@ function (but grows exponentially)
 
 Tools: ssdeep, sdhash
 
-Media analysis:
+#### Media analysis
 - Analysis of user- and program data
 - Many small and specially dedicated tools
 - Browser history, EXIF data, PDF metadata, printer spooler
 
-Regripper:
+#### Regripper
 - Windows registry is very powerful source of information
 - E.g. UserAssistKey (contains all executed programs of user, number of executions and last execution)
 - Windows 10: Windows 10 timeline (sqlite)
@@ -202,7 +201,7 @@ Naive tools don’t detect DCO & HPA!
 - Expert witnesses („Sachverständiger“) as experts in their fields of work lend their expertise to the court
 
 #### What is an expert witness („Sachverständiger“)?
-- Person qualified and competent on a certain field of work to identify and work out (information about) facts, analyze and evaluate facts based on their professional knowledge and experience and present the result to court in form of an impartial report („Gutachten“)
+- Person qualified and competent on a certain field of work to identify and work out (information about) facts, analyze and evaluate facts based on their professional knowledge and experience and present the result to court in form of an impartial report (Gutachten)
 - Not a protected job title, but there is a official certificate („Allgemein beeideter und gerichtlich zertifizierter Sachverständiger“). They can be found on an official list
 
 Also there are „Amtssachverständige“ (official expert witness), which are employed by authorities and Privatgutachter (private expert witnesses) creating reports for private clients.
@@ -266,7 +265,7 @@ Even if you are no member of the Hauptverband, those standards apply to all expe
 
 
 ### Reports and argumentation
-- A „Gutachten“ (expert witness report) is a fact-based reconstruction of an expert about a certain question/problem
+- A Gutachten (expert witness report) is a fact-based reconstruction of an expert about a certain question/problem
 - Purpose is forensic reporting and enabling the judge to establish the truth
 - No legal obligations or restrictions in the private sector, but professional standards apply and liability for wrongful reporting
 - Generally all relevant facts included in a report have to be proven (Apart from obvious or publicly well know facts)
@@ -275,7 +274,7 @@ Even if you are no member of the Hauptverband, those standards apply to all expe
 - Forensic analyst / expert witness only present facts, but no legal facts (legal facts are decided by the court only)
 
 #### Expert witness report
-- Usually contains „Befund“ und „Gutachten“
+- Usually contains Befund und Gutachten
 - But: There are no detailed legal obligations for the structure of a report (structured report helps to prevent mistakes)
 
 What should be contained in the findings of a digital forensics report? 
@@ -745,7 +744,7 @@ How to access cloud data for investigations:
 ### Google takeout
 - Create an archive with all data from Google products
 - Archives may take a long time
-- It's not complete, they know more 
+- It's not complete, they know more
 
 ### Legal aspects of cloud forensics
 - Austria: Cloud extraction legal if done during house search, cloud extraction after house search requires search warrrant
