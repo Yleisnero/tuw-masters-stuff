@@ -435,7 +435,7 @@ Outside:
 - If secure startup is used, the whole disk will be encrypted with the users PIN/Pattern/Password and a built-in hardware key
 - Since Android 7: file-based encryption introduced. This allows different files to be encrypted with different keys that can be unlocked independently (boot directly into lock screen, separate accounts)
 
-![Android Encrpytion](android_encr.png)
+![Android Encrpytion](screenshots/android_encr.png)
 
 
 #### iOS Encryption
@@ -448,7 +448,7 @@ Outside:
 - Encrypted file-specific key is stored in the file’s metadata
 - Decryption of a file is dependent on the availability of a decrypted representation of the corresponding class key
 
-![Android Encrpytion](ios_encr.png)
+![Android Encrpytion](screenshots/ios_encr.png)
 
 - iOS Data Protection: Very fast and reliable data reset, effaceable storage, deleted keys cannot be recovered
 
@@ -469,7 +469,7 @@ Outside:
 
 Alternative Extraction Methods for Android:
 
-<img src="other_methods.png" alt="drawing" width="500"/>
+<img src="screenshots/other_methods.png" alt="drawing" width="500"/>
 
 Alternative Extraction Methods for iOs: 
 - Jailbreaking (Uses exploits to unlock the user root)
