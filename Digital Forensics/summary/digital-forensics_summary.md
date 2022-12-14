@@ -69,7 +69,7 @@ Smartphone or Tablet:
 
 Stages of analysis:
 - Preliminary analysis, acquisition of facts and evidence
-- Get access to data (e.g. RAID, encryption), analyse data
+- Get access to data (e.g. RAID, encryption), analyses data
 - Reporting, visualize the data, draw conclusions
 - Accompanying documentation: hash values, chain of custody, evidence bags, pictures, videos
 
@@ -103,7 +103,7 @@ File shredding:
 - Or: physical destruction
 
 #### File Carving
-- Looks for file signature or hard drives
+- Looks for file signature on hard drives
 - Many files have predefined header and footer
 - Simple pattern matching, data as stream
 - E.g. JPEG starts with 0xﬀd8 and ends with 0xﬀd9
@@ -116,7 +116,7 @@ File shredding:
 
 #### Sector hashing
 - Hashing hard drive sectors, instead of files
-- Benefit: Partially overwritten files (slack)
+- Benefit: Partially overwritten files or files in slack can be found
 - Problem: Number of hash values
 
 #### Fuzzy hashing
@@ -355,14 +355,14 @@ After acquiring a mobile device, it should be disconnected from the cellular net
 
 A device can be disconnected from the cellular network the following ways:
 - Activate airplane mode (easy, reliable, but device sometimes needs to be unlocked and GPS and WiFi may stay active)
-- Use a faraday-bag or a similar container (device does not need to be powered down, may not be 100% secure (seal properly), shortes battery life (connect power pack))
+- Use a faraday-bag or a similar container (device does not need to be powered down, may not be 100% secure (seal properly), shortens battery life (connect power pack))
 - Remove SIM-Card (Wifi may stay active, not possible for eSIM)
 - Power off device (Can change or overwrite data, may activate password locks, may lock encrypted phone, sometimes needs to be unlocked, alarm clock may power on again) 
 
 If a device is found connected to a PC, it is recommended to dump the memory of the PC before disconnecting the mobile device. The PC should later be searched for synchronized data.
 
 ### Documentation
-- IMEI (International Mobile Equipment ID) is usually used as a cellphone’s ID for documentation purposes (15 decimal digits on back of phoen or SIM-card tray)
+- IMEI (International Mobile Equipment ID) is usually used as a cellphone’s ID for documentation purposes (15 decimal digits on back of phone or SIM-card tray)
 - ESN (Electronic Serial Number) number was used in the US / CDMA network (Phased out in favor of the MEID)
 - MEID (Mobile Equipment Identifier) number is now used in the US / CDMA network (also 15 decimal digits)
 
@@ -404,7 +404,7 @@ Outside:
 - Android 10: Project Mainline (Updating Android system modules through Google Play, allows updating single system component without full system update)
 
 #### iOS Updates
-- OTR update distribution by Apple directly to devices
+- OTA update distribution by Apple directly to devices
 - Good support for older devices
 - Since iOS 15: Standalone security patches
 - OS-images can also be downloaded and flashed on phones via iTunes (no downgrading except from beta, needs to be signed, only latest version signed)
@@ -441,7 +441,8 @@ Outside:
 #### iOS Encryption
 - AES 256 crypto engine between flash storage and memory
 - Two important keys stored in hardware: UID (device ID, used for binding data to one device) and GID (device group ID, used for non-security tasks like device recovery)
-- No access to UID or GID through debugging interfaces such as JTAG, UID or GID can’t be read by software or firmware
+- No access to UID or GID through debugging interfaces such as JTAG
+- UID or GID can’t be read by software or firmware
 - Secure Enclave (SEP): Security co-processor / dedicated ARM v7a processor
 - Four different classes of protection for files (some files only available after unlock, some before)
 - Hierarchy of keys (file is encrypted with a file-specific key, which is encrypted with one (or more) of the four class keys)
@@ -630,6 +631,11 @@ Techniques used as countermeasures to forensic analysis (ensure privacy or for c
 - Call encrypted since 2G (but easily decrypted), frequency jammers force fallback to 2G, IMSI catchers (fake cellular tower)
 - Use Crypto Messengers for calls too
 
+#### Cold boot attack
+- Side channel attack on RAM after computer is turned off
+- Memory dump of RAM created
+- Can be used for gaining encrypted keys of the OS
+
 ### Data Hiding
 - Phones: Apps with fake funcitonality (easy to spot after data extraction)
 - Dual boot
@@ -708,7 +714,7 @@ Smartphones were never designed with security or privacy in mind
 - Often, cloud account login information is stored on seized devices
 - But: No physical access to cloud-data (unclear where it is stored, not possible to image whole cloud-server)
 - No transparency (chain of custody?)
--No best practice methods (Forensic software for several SaaS-products available by now)
+- No best practice methods (Forensic software for several SaaS-products available by now)
 - Legal constraints
 
 ### Public clouds vs private clouds
