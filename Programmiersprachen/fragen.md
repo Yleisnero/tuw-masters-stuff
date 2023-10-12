@@ -57,6 +57,12 @@ Java unterstützt keine geschachtelten Funktionen. Objekte und Klassen liegen au
 
 Each static type system is also strong, but not every strong type system is static
 
+## Welche static typed Programmiersprachen gibt es?
+**ML**, Java, Haskell, C, C++, C#, Scala, Kotlin, Fortran, Go, Pascal, Swift
+
+## Welche dynamically typed Programmiersprachen gibt es?
+Python, **Smalltalk**, JavaScript, Lisp, PHP, Ruby, Perl, Lua, and Tcl
+
 ## Exception-Handling
 Der Compiler weißt jeder möglichen Exception einen eindeutigen Namen zu (IP-Adresse). Damit eine Exception behandelt werden kann, ist ein geeigneter Exception-Handler notwendig. Dieser wird von innen (aktueller Block) nach außen gesucht (über dynamic link). Hierbei ist der global eindeutige Name notwendig.
 
@@ -90,3 +96,66 @@ Bei Verwendung eines Monitors muss sich der Programmierer nicht mehr explizit (w
 
 ## Rendezvous in Ada
 Zwischen accept & end findet das Rendezvous statt. Dort läuft der Programmcode synchron ab. Accept statements benutzen vorher definierte messages. Um mehrere messages zu verknüpfen gibt es select when.
+
+## Was ist das Gegenstück zu Java notify()/notifyAll() in Ada?
+Es gibt kein Gegenstück in Ada. In Ada werden Protected Types (Monitor) oder Rendezvous verwendet.
+
+## Was sind virtual functions in C++?
+Eine Funktion die mit dem Keyword virtual deklariert wird, wird vom Compiler dynamisch gebunden. D.h. der Typ wird erst zur Laufzeit bestimmt. Dies ist notwendig, wenn eine Funktion in einer abgeleiteten Klasse überschrieben wird.
+
+```c++
+#include <iostream>
+using namespace std;
+
+struct A {
+   void f() { cout << "Class A" << endl; }
+};
+
+struct B: A {
+   void f() { cout << "Class B" << endl; }
+};
+
+void g(A& arg) {
+   arg.f();
+}
+
+int main() {
+   B x;
+   g(x);
+}
+```
+
+Output:
+```c++
+Class A
+```
+
+#### Virtual function
+```c++
+#include <iostream>
+using namespace std;
+
+struct A {
+   virtual void f() { cout << "Class A" << endl; }
+};
+
+struct B: A {
+   void f() { cout << "Class B" << endl; }
+};
+
+void g(A& arg) {
+   arg.f();
+}
+
+int main() {
+   B x;
+   g(x);
+}
+```
+
+Output:
+```c++
+Class B
+```
+
+Eine virtuelle Funktion die keine Implementierung hat, wird als pure virtual function bezeichnet (=0). Eine Klasse die eine oder mehrere pure virtual functions enthält, wird als abstract class bezeichnet.
